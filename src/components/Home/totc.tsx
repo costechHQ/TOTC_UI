@@ -73,7 +73,7 @@ const Totc = () => {
       </section>
 
       {/* ================= EVERYTHING YOU CAN DO ================= */}
-      <section className="bg-white px-5 py-16 sm:px-8 md:py-20 lg:px-32">
+      <section className="bg-white px-5 py-16 md:py-20 lg:px-32">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 md:flex-row md:gap-12 lg:gap-16">
           {/* Left Text */}
           <div className="flex-1 text-center md:text-left">
@@ -95,7 +95,7 @@ const Totc = () => {
           </div>
 
           {/* Right Image */}
-          <div className="relative flex-1">
+          <div className="relative flex-1 ml-10">
             <div className="relative overflow-hidden rounded-3xl">
               <Image
                 src="/images/lecture.png"

@@ -67,7 +67,7 @@ const Testimonial = () => {
             </div>
 
             {/* Floating Absolute Positioned Testimonial Box */}
-            <div className="absolute -bottom-8 sm:left-4 md:left-7.5 lg:left-0 xl:left-8 z-30 w-full max-w-85 sm:max-w-95 rounded-2xl bg-white p-6 shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-gray-100/50 flex flex-col justify-between min-h-50">
+            <div className="absolute -bottom-8 sm:left-4 lg:ml-56  md:left-7.5 lg:left-0 xl:left-8 z-30 w-full max-w-85 sm:max-w-95 rounded-2xl bg-white p-6 shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-gray-100/50 flex flex-col justify-between min-h-50">
               {/* Left Accent Color Indicator Strip */}
               <div className="absolute left-0 top-6 bottom-6 w-1 bg-[#EF7E7E] rounded-r-md" />
               

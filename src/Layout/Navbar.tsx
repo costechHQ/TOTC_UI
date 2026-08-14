@@ -52,10 +52,12 @@ const Navbar = () => {
           >
             Login
           </Link>
-
-          <a className="btn rounded-full border hidden lg:flex border-white/30 w-110px h-40px bg-white/30 text-[#ffffff] ">
+          <Link
+            href="/signup"
+            className="btn rounded-full border hidden lg:flex border-white/30 w-110px h-40px bg-white/30 text-[#ffffff] "
+          >
             Sign Up
-          </a>
+          </Link>
         </div>
 
         <div>
@@ -83,12 +85,18 @@ const Navbar = () => {
                 </li>
               ))}
               <div className="flex gap-2  mt-3 ">
-                <a className="btn rounded-full border border-white w-[110] h-[40] bg-white text-[#5B5B5B]">
+                <Link
+                  href="/login"
+                  className="btn rounded-full border border-white w-[110] h-[40] bg-white text-[#5B5B5B]"
+                >
                   Login
-                </a>
-                <a className="btn rounded-full border border-white/30 w-[110] h-[40] bg-white/30 text-[#fffff]">
+                </Link>
+                <Link
+                  href="/signup"
+                  className="btn rounded-full border border-white/30 w-[110] h-[40] bg-white/30 text-[#fffff]"
+                >
                   Sign Up
-                </a>
+                </Link>
               </div>
             </ul>
           </div>

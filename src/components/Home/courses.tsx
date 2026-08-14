@@ -63,13 +63,13 @@ const Courses = () => {
               {/* Books Layout (7 items) */}
               <div className="flex items-end justify-center gap-1.5 overflow-hidden">
                 {[
-                  "Book-3.png",
+                  "Book.png",
+                  "Book-1.png",
                   "Book-2.png",
+                  "Book-3.png",
+                  "Book-4.png",
                   "Book-5.png",
-                  "Book-5.png",
-                  "Book-5.png",
-                  "Book-5.png",
-                  "Book-5.png",
+                  "Book-6.png",
                 ].map((book, index) => (
                   <Image
                     key={index}
@@ -111,10 +111,14 @@ const Courses = () => {
             </div>
 
             {/* Row Content - Card Intersected in the Middle */}
+            
             <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
               {/* Left Side Books (4 items) */}
               <div className="flex items-end justify-center gap-1.5">
-                {["Book-5.png", "Book-5.png", "Book-5.png", "Book-5.png"].map(
+                {["Book.png", 
+                "Book-1.png", 
+                "Book-2.png", 
+                "Book-3.png"].map(
                   (book, index) => (
                     <Image
                       key={index}
@@ -141,7 +145,9 @@ const Courses = () => {
 
               {/* Right Side Books (3 items) */}
               <div className="flex items-end justify-center gap-1.5">
-                {["Book-5.png", "Book-5.png", "Book-5.png"].map(
+                {["Book-5.png", 
+                "Book-6.png", 
+                "Book-5.png"].map(
                   (book, index) => (
                     <Image
                       key={index}
@@ -188,13 +194,13 @@ const Courses = () => {
               {/* Right Side Books (7 items) */}
               <div className="flex items-end justify-center gap-1.5 overflow-hidden">
                 {[
+                  "Book.png",
+                  "Book-1.png",
+                  "Book-2.png",
+                  "Book-3.png",
+                  "Book-4.png",
                   "Book-5.png",
-                  "Book-5.png",
-                  "Book-5.png",
-                  "Book-5.png",
-                  "Book-5.png",
-                  "Book-5.png",
-                  "Book-5.png",
+                  "Book-6.png",
                 ].map((book, index) => (
                   <Image
                     key={index}

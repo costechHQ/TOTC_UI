@@ -35,7 +35,6 @@ const SectionSubtitle = ({
 
 const Totc = () => {
   return (
-    // 2. FIXED: Wrapped inside an enclosing React Fragment
     <>
       {/* ================= OUR FEATURES ================= */}
       <section className="bg-[#FFFF] px-5 py-16 sm:px-8 md:py-20 lg:px-32">
@@ -239,8 +238,8 @@ const Totc = () => {
                             className="h-auto w-full object-cover"
                           />
                         </div>
-      
-                        {/* Success message - shifted down and right to break frame */}
+
+                        
                         <div className="absolute -bottom-6 -right-12 z-30 w-full max-w-60 drop-shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
                           <Image
                             src="/images/Group 89.png"

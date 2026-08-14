@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { FiEye,} from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { loginSchema, type LoginFormData } from "@/schemas/authSchema";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -23,7 +25,13 @@ const Login = () => {
   });
 
    const onSubmit = async (data: LoginFormData) => {
+    try {
     console.log("Validated data:", data);
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+     await router.push("/");
+    } catch (error) {
+      console.error("Login submission failed:", error);
+    }
   };
 
   return (
@@ -49,7 +57,7 @@ const Login = () => {
           <div className="w-full max-w-sm">
             {/* Welcome text */}
             <p className="text-center text-xs font-medium text-[#696984]">
-              Welcome to lorem..!
+              Welcome to TOTC
             </p>
 
             {/* Toggle */}
@@ -57,14 +65,17 @@ const Login = () => {
               <button className="rounded-full bg-[#49BBBD] px-7 py-2 text-xs font-semibold text-white shadow-sm transition">
                 Login
               </button>
+              <Link
+              href="/signup">
               <button className="rounded-full px-7 py-2 text-xs font-semibold text-[#49BBBD] transition hover:bg-white/50">
                 Register
               </button>
+              </Link>
             </div>
 
             {/* Subtitle */}
             <p className="mt-5 text-center text-[11px] leading-relaxed text-[#696984] sm:text-xs">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Mr. Cletus made us design this to showcase proficiency in Front-end Engineering.
             </p>
 
             {/* Form */}
