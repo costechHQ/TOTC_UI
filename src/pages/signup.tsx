@@ -6,11 +6,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from 'next/link';
 import { useRouter } from "next/router";
 
-
 import { signupSchema, type SignupFormData } from "@/schemas/authSchema";
 
-const Signup = () => {
-     const router = useRouter();
+export default function Signup() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -29,10 +28,9 @@ const Signup = () => {
   });
 
   const onSubmit = async (data: SignupFormData) => {
-    try{
-    console.log("Validated data:", data);
-
-     await new Promise((resolve) => setTimeout(resolve, 1500)); 
+    try {
+      console.log("Validated data:", data);
+      await new Promise((resolve) => setTimeout(resolve, 1500)); 
       await router.push("/"); 
     } catch (error) {
       console.error("Signup submission failed:", error);
@@ -65,19 +63,17 @@ const Signup = () => {
               Welcome to TOTC
             </p>
 
-            {/* Toggle (Swapped active styling to Register) */}
+            {/* Toggle */}
             <div className="mx-auto mt-4 flex w-fit items-center rounded-full bg-[#49BBBD]/15 p-1">
-              <Link
-              href="/login">
-              <button className="rounded-full px-7 py-2 text-xs font-semibold text-[#49BBBD] transition hover:bg-white/50">
-                Login
-              </button>
+              <Link href="/login">
+                <button type="button" className="rounded-full px-7 py-2 text-xs font-semibold text-[#49BBBD] transition hover:bg-white/50">
+                  Login
+                </button>
               </Link>
-              <Link
-              href="/signup" >
-              <button className="rounded-full bg-[#49BBBD] px-7 py-2 text-xs font-semibold text-white shadow-sm transition">
-                Register
-              </button>
+              <Link href="/signup">
+                <button type="button" className="rounded-full bg-[#49BBBD] px-7 py-2 text-xs font-semibold text-white shadow-sm transition">
+                  Register
+                </button>
               </Link>
             </div>
 
@@ -203,16 +199,16 @@ const Signup = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full rounded-full bg-[#49BBBD] py-2.5 mt-2 text-sm font-semibold text-white shadow-md transition hover:bg-[#3aa8aa] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+                className="mt-2 w-full rounded-xl bg-[#49BBBD] py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#3ca4a6] active:scale-[0.98] disabled:bg-gray-300 disabled:pointer-events-none"
               >
-                {isSubmitting ? "Creating account..." : "Register"}
+                {isSubmitting ? "Registering..." : "Register"}
               </button>
+
             </form>
           </div>
         </div>
+
       </div>
     </section>
   );
-};
-
-export default Signup;
+}

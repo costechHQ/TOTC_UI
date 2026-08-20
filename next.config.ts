@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
 };
 
 module.exports = {
-  impages: {
+  images: {
     remotePatterns: [{ protocol: "https", hostname: "cdn.dummyjson.com"}],
   },
 };

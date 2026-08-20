@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { FiEye,} from "react-icons/fi";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type LoginFormData } from "@/schemas/authSchema";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Login = () => {
+export default function Login() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -24,11 +24,11 @@ const Login = () => {
     },
   });
 
-   const onSubmit = async (data: LoginFormData) => {
+  const onSubmit = async (data: LoginFormData) => {
     try {
-    console.log("Validated data:", data);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-     await router.push("/");
+      console.log("Validated data:", data);
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await router.push("/");
     } catch (error) {
       console.error("Login submission failed:", error);
     }
@@ -38,6 +38,7 @@ const Login = () => {
     <section className="flex min-h-screen items-center justify-center bg-[#FFFFFF] p-4 sm:p-6 lg:p-8">
       <div className="grid w-full max-w-250 overflow-hidden rounded-4xl bg-white shadow-xl lg:grid-cols-2">
         
+        {/* ================= LEFT IMAGE ================= */}
         <div className="relative hidden lg:block">
           <Image
             src="/images/student1.png"
@@ -49,7 +50,6 @@ const Login = () => {
           />
           {/* Dark gradient overlay at bottom */}
           <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
-        
         </div>
 
         {/* ================= RIGHT FORM ================= */}
@@ -62,14 +62,13 @@ const Login = () => {
 
             {/* Toggle */}
             <div className="mx-auto mt-4 flex w-fit items-center rounded-full bg-[#49BBBD]/15 p-1">
-              <button className="rounded-full bg-[#49BBBD] px-7 py-2 text-xs font-semibold text-white shadow-sm transition">
+              <button type="button" className="rounded-full bg-[#49BBBD] px-7 py-2 text-xs font-semibold text-white shadow-sm transition">
                 Login
               </button>
-              <Link
-              href="/signup">
-              <button className="rounded-full px-7 py-2 text-xs font-semibold text-[#49BBBD] transition hover:bg-white/50">
-                Register
-              </button>
+              <Link href="/signup">
+                <button type="button" className="rounded-full px-7 py-2 text-xs font-semibold text-[#49BBBD] transition hover:bg-white/50">
+                  Register
+                </button>
               </Link>
             </div>
 
@@ -79,70 +78,66 @@ const Login = () => {
             </p>
 
             {/* Form */}
-            <form
-  onSubmit={handleSubmit(onSubmit)}
-  className="mt-6 space-y-4"
->
-              {/* User name */}
-             <input
-  id="username"
-  type="text"
-  placeholder="Enter your username"
-  {...register("username")}
-  className={`mt-1.5 w-full rounded-xl border bg-white px-4 py-2.5 text-sm text-[#2F327D] placeholder:text-gray-400 outline-none transition focus:ring-2 ${
-    errors.username
-      ? "border-red-400 focus:border-red-400 focus:ring-red-400/20"
-      : "border-gray-200 focus:border-[#49BBBD] focus:ring-[#49BBBD]/20"
-  }`}
-/>
+            <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
+              
+              {/* Username Field */}
+              <div>
+                <label htmlFor="username" className="block text-xs font-semibold text-[#2F327D]">
+                  Username
+                </label>
+                <input
+                  id="username"
+                  type="text"
+                  placeholder="Enter your username"
+                  {...register("username")}
+                  className={`mt-1.5 w-full rounded-xl border bg-white px-4 py-2.5 text-sm text-[#2F327D] placeholder:text-gray-400 outline-none transition focus:ring-2 ${
+                    errors.username
+                      ? "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+                      : "border-gray-200 focus:border-[#49BBBD] focus:ring-[#49BBBD]/20"
+                  }`}
+                />
+                {errors.username && (
+                  <p className="mt-1 text-[11px] font-medium text-red-500">
+                    {errors.username.message}
+                  </p>
+                )}
+              </div>
 
-{errors.username && (
-  <p className="mt-1 text-[11px] font-medium text-red-500">
-    {errors.username.message}
-  </p>
-)}
-
-              {/* Password */}
-             <div>
-  <label
-    htmlFor="password"
-    className="block text-xs font-semibold text-[#2F327D]"
-  >
-    Password
-  </label>
-
-  <div className="relative mt-1.5">
-    <input
-      id="password"
-      type={showPassword ? "text" : "password"}
-      placeholder="Enter your Password"
-      {...register("password")}
-      className={`w-full rounded-xl border bg-white px-4 py-2.5 pr-10 text-sm text-[#2F327D] placeholder:text-gray-400 outline-none transition focus:ring-2 ${
-        errors.password
-          ? "border-red-400 focus:border-red-400 focus:ring-red-400/20"
-          : "border-gray-200 focus:border-[#49BBBD] focus:ring-[#49BBBD]/20"
-      }`}
-    />
-
-    <button
-      type="button"
-      onClick={() => setShowPassword(!showPassword)}
-      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 transition hover:text-[#49BBBD]"
-    >
-      <FiEye size={18} />
-    </button>
-  </div>
-
-  {errors.password && (
-    <p className="mt-1 text-[11px] font-medium text-red-500">
-      {errors.password.message}
-    </p>
-  )}
-</div>
+              {/* Password Field */}
+              <div>
+                <label htmlFor="password" className="block text-xs font-semibold text-[#2F327D]">
+                  Password
+                </label>
+                <div className="relative mt-1.5">
+                  <input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your Password"
+                    {...register("password")}
+                    className={`w-full rounded-xl border bg-white px-4 py-2.5 pr-10 text-sm text-[#2F327D] placeholder:text-gray-400 outline-none transition focus:ring-2 ${
+                      errors.password
+                        ? "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+                        : "border-gray-200 focus:border-[#49BBBD] focus:ring-[#49BBBD]/20"
+                    }`}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 transition hover:text-[#49BBBD]"
+                  >
+                    {showPassword ? <FiEyeOff size={18} /> : <FiEye size={18} />}
+                  </button>
+                </div>
+                {errors.password && (
+                  <p className="mt-1 text-[11px] font-medium text-red-500">
+                    {errors.password.message}
+                  </p>
+                )}
+              </div>
 
               {/* Remember me & Forgot password */}
-              <div className="flex items-center justify-between">
-                <label className="flex items-center gap-2 cursor-pointer">
+              <div className="flex items-center justify-between pt-1">
+                <label className="flex items-center gap-2 cursor-pointer select-none">
                   <input
                     type="checkbox"
                     {...register("rememberMe")}
@@ -160,20 +155,20 @@ const Login = () => {
                 </a>
               </div>
 
-              {/* Submit */}
-             <button
-  type="submit"
-  disabled={isSubmitting}
-  className="w-full rounded-full bg-[#49BBBD] py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#3aa8aa] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
->
-  {isSubmitting ? "Logging in..." : "Login"}
-</button>
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full rounded-xl bg-[#49BBBD] py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#3aa8aa] active:scale-[0.98] disabled:bg-gray-300 disabled:pointer-events-none"
+              >
+                {isSubmitting ? "Logging in..." : "Login"}
+              </button>
+
             </form>
           </div>
         </div>
+
       </div>
     </section>
   );
-};
-
-export default Login;
+}
