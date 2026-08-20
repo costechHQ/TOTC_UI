@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import { FiEye, FiEyeOff } from "react-icons/fi";
@@ -44,7 +46,7 @@ export default function Signup() {
         {/* ================= LEFT IMAGE ================= */}
         <div className="relative hidden lg:block">
           <Image
-            src="public/images/signup.png"
+            src="/images/signup.png"
             alt="Student"
             fill
             quality={100}
