@@ -44,7 +44,7 @@ export default function Signup() {
         {/* ================= LEFT IMAGE ================= */}
         <div className="relative hidden lg:block">
           <Image
-            src="/images/signup.png"
+            src="public/images/signup.png"
             alt="Student"
             fill
             quality={100}
