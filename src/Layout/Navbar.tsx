@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className="navbar-start">
           <Link href="/" className="flex items-center">
             <Image
-              src="https://res.cloudinary.com/ac3zepfp/image/upload/v1787243620/logo.png"
+              src="/images/logo.png"
               alt="TOTC Logo"
               width={50}
               height={50}
